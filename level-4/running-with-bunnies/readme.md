@@ -1,0 +1,2 @@
+Although solutions use the same algorithm, java solution is failing on hidden test case 6.
+I tried working with big integers in case matrix operations are escaping max integer values, but that wasn't the case.
