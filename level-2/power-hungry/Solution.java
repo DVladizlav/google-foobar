@@ -26,12 +26,10 @@ public class Solution {
 
         if (positiveNums.size() + negativeNums.size() > 0) {
             product = BigInteger.ONE;
-            for (int power : positiveNums) {
+            for (int power : positiveNums) 
                 product = product.multiply(BigInteger.valueOf(power));
-            }
-            for (int power : negativeNums) {
+            for (int power : negativeNums)
                 product = product.multiply(BigInteger.valueOf(power));
-            }
         }
 
         return product.toString();
