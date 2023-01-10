@@ -7,32 +7,27 @@ public class Solution {
 
     static int N = 0;
 
-    public static void main(String[] args) {
-        int test = solution(new boolean[][] { { true, true, false, true, false, true,
-                false, true, true, false },
-                { true, true, false, false, false, false, true, true, true, false }, {
-                        true, true, false, false, false, false, false, false, false, true },
-                { false, true, false, false, false, false, true, true, false, false } });
-        System.out.println(test);
-    }
-
     public static int solution(boolean[][] g) {
         N = g.length;
         int M = g[0].length;
 
         // transpose matrix
         boolean[][] matrix = new boolean[M][N];
-        for (int i = 0; i < N; i++)
-            for (int j = 0; j < M; j++)
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
                 matrix[j][i] = g[i][j];
+            }
+        }
 
         // sum up cols in rows
         int[] nums = new int[M];
         for (int i = 0; i < M; i++) {
             int temp = 0;
-            for (int j = 0; j < N; j++)
-                if (matrix[i][j])
+            for (int j = 0; j < N; j++) {
+                if (matrix[i][j]) {
                     temp += 1L << j;
+                }
+            }
             nums[i] = temp;
         }
 
@@ -56,16 +51,17 @@ public class Solution {
         // map.forEach((key, value) -> System.out.println(key + " : " + value));
 
         int[] image = new int[limit];
-        for (int i = 0; i < limit; i++)
+        for (int i = 0; i < limit; i++) {
             image[i] = 1;
+        }
 
         for (int i = 0; i < M; i++) {
             int[] nextImage = new int[limit];
             for (int j = 0; j < limit; j++) {
                 ArrayList<Integer> values = map.getOrDefault(nums[i] + "," + j, new ArrayList<>());
-                for (int value : values)
+                for (int value : values) {
                     nextImage[value] += image[j];
-
+                }
             }
             image = nextImage;
         }

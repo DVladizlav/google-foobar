@@ -1,5 +1,5 @@
 public class Solution {
- 
+
     public static String solution(String s) {
         // 26 = number of characters (a-z) we want to reverse
         final int[] table = new int[26];

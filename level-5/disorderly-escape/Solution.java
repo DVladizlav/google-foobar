@@ -12,32 +12,33 @@ public class Solution {
 
         for (List<Integer> partitionW : cyclePartitions(w, 1)) {
             for (List<Integer> partitionH : cyclePartitions(h, 1)) {
-
+                
                 BigInteger m = BigInteger.valueOf(countCycles(partitionW, w))
                         .multiply(BigInteger.valueOf(countCycles(partitionH, h)));
                 int sum = 0;
-                for (int i : partitionW)
-                    for (int j : partitionH)
+                for (int i : partitionW) {
+                    for (int j : partitionH) {
                         sum += gcd(i, j);
-
+                    }
+                }
                 result = result.add(BigInteger.valueOf(s).pow(sum).multiply(m));
             }
         }
 
-        result = result.divide(BigInteger.valueOf(factorial(w)).multiply(BigInteger.valueOf(factorial(h))));
+        result = result.divide(
+                BigInteger.valueOf(factorial(w)).multiply(BigInteger.valueOf(factorial(h))));
 
         return result.toString();
     }
 
     static int countCycles(List<Integer> partition, int n) {
         int result = factorial(n);
-
         final Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         partition.forEach((p) -> map.merge(p, 1, Integer::sum));
 
-        for (Map.Entry<Integer, Integer> set : map.entrySet())
+        for (Map.Entry<Integer, Integer> set : map.entrySet()) {
             result /= Math.pow(set.getKey(), set.getValue()) * factorial(set.getValue());
-
+        }
         return result;
     }
 
@@ -66,9 +67,9 @@ public class Solution {
     /** for positive numbers and 0 only */
     static int factorial(int num) {
         int result = 1;
-        for (int i = num; i > 0; i--)
+        for (int i = num; i > 0; i--) {
             result *= i;
-
+        }
         return result;
     }
 }

@@ -1,5 +1,5 @@
 public class Solution {
- 
+
     public static String[] solution(String[] l) {
 
         for (int i = 0; i < l.length; i++) {
@@ -14,9 +14,9 @@ public class Solution {
                     final int num1 = Integer.parseInt(a1[r]);
                     final int num2 = Integer.parseInt(a2[r]);
 
-                    if (num1 == num2)
+                    if (num1 == num2) {
                         continue;
-                    else if (num1 > num2) {
+                    } else if (num1 > num2) {
                         final String tmp = l[i];
                         l[i] = l[j];
                         l[j] = tmp;
@@ -30,10 +30,8 @@ public class Solution {
                     l[i] = l[j];
                     l[j] = tmp;
                 }
-
             }
         }
-
         return l;
     }
 }
